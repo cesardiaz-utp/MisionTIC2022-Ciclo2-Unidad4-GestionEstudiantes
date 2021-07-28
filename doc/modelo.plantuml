@@ -1,0 +1,42 @@
+@startuml gestion estudiantes
+skinparam classAttributeIconSize 0
+
+abstract class Persona {
+    - identificacion: Long
+    - nombre: String
+}
+
+class Profesor extends Persona {
+    - titulo: String
+}
+
+class Estudiante extends Persona {
+    - codigo: String
+}
+
+class Nota {
+    - nombre: String
+    - valor: Double
+}
+
+class Materia {
+    - codigo: String
+    - nombre: String
+    - semestre: Integer
+    - programa: String
+    - creditos: Integer
+}
+
+enum Jornada {
+    DIURNA, NOCTURNA
+}
+
+Profesor "1..*" -- "1..*" Materia
+Profesor o-right- Estudiante
+Estudiante "*" -- "*" Materia
+(Estudiante, Materia) "1" -right- "*" Nota
+
+Profesor .left.> Jornada
+Estudiante ..> Jornada
+
+@enduml
