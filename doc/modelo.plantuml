@@ -31,12 +31,10 @@ enum Jornada {
     DIURNA, NOCTURNA
 }
 
-Profesor "1..*" -- "1..*" Materia
-Profesor o-right- Estudiante
-Estudiante "*" -- "*" Materia
+Profesor "1..*" -- "1..*" Materia : dicta
+Estudiante "*" -- "*" Materia : asiste
 (Estudiante, Materia) "1" -right- "*" Nota
 
-Profesor .left.> Jornada
-Estudiante ..> Jornada
+Persona .left.> Jornada
 
 @enduml
