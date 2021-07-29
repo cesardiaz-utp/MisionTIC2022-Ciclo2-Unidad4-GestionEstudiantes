@@ -50,4 +50,11 @@ public class Estudiante extends Persona {
     public List<Nota> getNotas() {
         return notas;
     }
+
+    @Override
+    public String toString() {
+        return "Estudiante [identificacion = " + getIdentificacion() + ", nombre = " + getNombre() + ", jornada= "
+                + getJornada() + ", codigo=" + codigo + "]";
+    }
+
 }
