@@ -2,16 +2,26 @@ package co.edu.utp.misiontic2022.c2.cdiaz.model.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
 public class Materia {
+    @Id
     private String codigo;
+    @Column(nullable = false)
     private String nombre;
     private Integer semestre;
-    private String programa; 
+    private String programa;
     private Integer creditos;
 
+    @ManyToMany(mappedBy = "materias")
     private List<Profesor> profesores;
 
     public Materia() {
+        // Para JPA
     }
 
     public Materia(String codigo, String nombre) {
